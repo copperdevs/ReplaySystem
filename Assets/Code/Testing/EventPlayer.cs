@@ -1,13 +1,15 @@
 using UnityEngine;
 
-// for testing purposes only
-public class EventPlayer : MonoBehaviour
+namespace CopperDevs.Replay
 {
-    [SerializeField] private TestEvent targetEvent;
-
-    [ContextMenu("Run Event")]
-    public void RunEvent()
+    public class EventPlayer : MonoBehaviour
     {
-        targetEvent.RecordEvent();
+        [SerializeField] private TestEvent targetEvent;
+
+        [ContextMenu("Run Event")]
+        public void RunEvent()
+        {
+            targetEvent.RecordEvent();
+        }
     }
 }

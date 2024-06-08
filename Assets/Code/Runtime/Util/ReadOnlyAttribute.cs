@@ -1,5 +1,9 @@
 using UnityEngine;
 
-public class ReadOnlyAttribute : PropertyAttribute
+
+namespace CopperDevs.Replay
 {
+    public class ReadOnlyAttribute : PropertyAttribute
+    {
+    }
 }

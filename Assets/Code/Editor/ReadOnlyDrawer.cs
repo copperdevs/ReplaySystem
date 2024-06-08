@@ -1,13 +1,17 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
-public class ReadOnlyPropertyDrawer : PropertyDrawer
+
+namespace CopperDevs.Replay.Editor
 {
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    [CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
+    public class ReadOnlyPropertyDrawer : PropertyDrawer
     {
-        EditorGUI.BeginDisabledGroup(true);
-        EditorGUI.PropertyField(position, property, label);
-        EditorGUI.EndDisabledGroup();
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        {
+            EditorGUI.BeginDisabledGroup(true);
+            EditorGUI.PropertyField(position, property, label);
+            EditorGUI.EndDisabledGroup();
+        }
     }
 }

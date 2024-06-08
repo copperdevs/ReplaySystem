@@ -1,11 +1,13 @@
 using UnityEngine;
 
-// for testing purposes only
-[CreateAssetMenu(fileName = "New Test Event", menuName = "Test Event", order = 1)]
-public class TestEvent : BaseEvent
+namespace CopperDevs.Replay
 {
-    public override void ReplayEvent()
+    [CreateAssetMenu(fileName = "New Test Event", menuName = "Test Event", order = 1)]
+    public class TestEvent : BaseEvent
     {
-        Debug.Log("Test Event Played", this);
+        public override void ReplayEvent()
+        {
+            Debug.Log("Test Event Played", this);
+        }
     }
 }

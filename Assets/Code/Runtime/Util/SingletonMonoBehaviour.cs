@@ -1,22 +1,26 @@
 using UnityEngine;
 
-public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
+
+namespace CopperDevs.Replay
 {
-    private static T instance;
-
-    public static T Instance
+    public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
     {
-        get
+        private static T instance;
+
+        public static T Instance
         {
-            if (instance != null)
+            get
+            {
+                if (instance != null)
+                    return instance;
+
+                instance = (T)FindFirstObjectByType(typeof(T));
+
+                if (instance == null)
+                    instance = new GameObject(typeof(T).ToString()).AddComponent<T>();
+
                 return instance;
-
-            instance = (T)FindFirstObjectByType(typeof(T));
-
-            if (instance == null)
-                instance = new GameObject(typeof(T).ToString()).AddComponent<T>();
-
-            return instance;
+            }
         }
     }
 }
